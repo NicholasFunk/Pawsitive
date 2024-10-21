@@ -1,24 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Models
 
-Things you may want to cover:
+    Dog - name:string, color:string, age:decimal, description:text
+    Image - image:string (url)
 
-* Ruby version
+* Controllers
 
-* System dependencies
+    Dog - index, show, edit
 
-* Configuration
+* Describe Datasets
+    The dog api will be used to fetch a list of breeds.
+    The dog api allows us to search for an image of a specific breed. 
+    Faker will be used to generate random description of the animals behaviour and characteristics. 
 
-* Database creation
+    
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
