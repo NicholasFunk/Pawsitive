@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get "dog/index"
+  get "dog/show"
+  get "dog/edit"
   resources :dogs
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
