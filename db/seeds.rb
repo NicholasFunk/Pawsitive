@@ -33,12 +33,14 @@ response = Net::HTTP.get_response(url_dogs)
 data = JSON.parse(response.body)
 
 # t.string "name"
-# t.string "color"
+# t.string "gender"
+# t.string "coat_length"
+# t.string "size"
 # t.decimal "age"
 # t.text "description"
 
 data.each do |breed|
-    dog = Dog.new(name: Faker::)
+    dog = Dog.new(name: Faker::Creature::Dog.name, gender: Faker::Creature::Dog.gender, )
 end
 
 # # Fetch an image of that dog

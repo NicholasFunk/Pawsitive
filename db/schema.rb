@@ -14,7 +14,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_22_003100) do
   create_table "dogs", force: :cascade do |t|
     t.string "name"
     t.string "gender"
-    t.string "color"
+    t.string "size"
     t.decimal "age"
     t.text "description"
     t.datetime "created_at", null: false
