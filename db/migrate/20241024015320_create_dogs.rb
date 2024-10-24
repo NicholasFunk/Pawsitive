@@ -4,10 +4,8 @@ class CreateDogs < ActiveRecord::Migration[7.2]
       t.string :name
       t.integer :age
       t.string :gender
+      t.string :breed
       t.text :description
-
-      t.references :breed, null: false, foreign_key: true
-      t.references :dog_image, null: false, foreign_key: true
 
       t.timestamps
     end

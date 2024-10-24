@@ -29,7 +29,7 @@ url_image = URI.parse("https://dog.ceo/api/breed/#{random_breed.name}/images/ran
 
 response = Net::HTTP.get_response(url_image)
 random_image = JSON.parse(response.body)
-puts random_image
+DogImage.create(image_url: random_image)
 
 # Construct a fake dog using faker and the random breed and image.
 
@@ -38,9 +38,9 @@ dog_age = Faker::Creature::Dog.age
 dog_gender = Faker::Creature::Dog.gender
 dog_description = "#{dog_name} is #{Faker::Adjective.positive} #{dog_age} year old #{dog_gender} that is looking for a loving home."
 
-dog = Dog.create(name: dog_name, 
+Dog.create(name: dog_name, 
                  age: dog_age,
                  gender: dog_gender,
-                 description: dog_description
+                 description: dog_description,
                 )
 
