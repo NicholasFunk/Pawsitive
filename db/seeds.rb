@@ -3,9 +3,11 @@
 require 'net/http'
 require 'json'
 
+DogImage.destroy_all
+DogBreed.destroy_all
 Dog.destroy_all
 Breed.destroy_all
-DogImage.destroy_all
+
 
 # Fetch all dogs
 url_dogs = URI.parse('https://dog.ceo/api/breeds/list/all')
@@ -27,11 +29,9 @@ end
 
     # In our loop, we will need to fetch an image from the api.
     random_breed = Breed.find(Breed.pluck(:id).sample)
-    url_image = URI.parse("https://dog.ceo/api/breed/#{random_breed.name}/images/random")
+    image_url = "https://dog.ceo/api/breed/#{random_breed.name}/images/random"
 
-    response = Net::HTTP.get_response(url_image)
-    random_image = JSON.parse(response.body)
-    DogImage.create(image_url: random_image)
+    puts image_url
 
     dog_name = Faker::Creature::Dog.name
     dog_age = Faker::Number.within(range: 1..20)
@@ -43,6 +43,10 @@ end
                      gender: dog_gender,
                      description: dog_description,
                     )
+
+    2.times do
+        dog.dog_images.create(image_url: image_url)
+    end
     
     # Create the dog breed reference
     DogBreed.create(dog: dog, breed: random_breed)

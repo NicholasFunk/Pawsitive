@@ -1,0 +1,12 @@
+<h1>All dogs</h1>
+<p>Shows all avilable puppies for adoption!</p>
+
+
+<% @dogs.each do |dog| %>
+    <ul>
+        <li><img src="<%=%>" alt="A picture of <%= dog.name%>"/></li>
+        <li><%= dog.name %></li>
+        <li>Age: <%= dog.age %></li>
+        <li>Gender: <%= dog.gender %></li>
+    </ul>
+<% end %>
