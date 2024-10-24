@@ -39,8 +39,15 @@ data = JSON.parse(response.body)
 # t.decimal "age"
 # t.text "description"
 
+# We need to add a breed id once we create the breeds table.
+
 data.each do |breed|
-    dog = Dog.new(name: Faker::Creature::Dog.name, gender: Faker::Creature::Dog.gender, )
+    dog = Dog.new(name: Faker::Creature::Dog.name, 
+                  gender: Faker::Creature::Dog.gender, 
+                  coat_length: Faker::Creature::Dog.coat_length, 
+                  size: Faker::Creature::Dog.size, 
+                  age: Faker::Creature::Dog.age,
+                  description: Faker::Creature::Dog.)
 end
 
 # # Fetch an image of that dog
