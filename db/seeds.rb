@@ -30,4 +30,15 @@ dogs_data["message"].each do |breed, array|
 end
 
 
-#
+# In our loop, we will need to fetch an image from the api.
+random_breed = Breed.find(Breed.pluck(:id).sample)
+url_image = URI.parse("https://dog.ceo/api/breed/#{random_breed.name}/images/random")
+
+response = Net::HTTP.get_response(url_image)
+random_image = JSON.parse(response.body)
+puts image
+
+# Construct a fake dog using faker and the random breed and image.
+
+dog = Dog.create(name: Faker::Creature.dog.unique.name, 
+                )
