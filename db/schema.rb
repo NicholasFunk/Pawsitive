@@ -26,6 +26,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_24_015320) do
   create_table "dogs", force: :cascade do |t|
     t.string "name"
     t.integer "age"
+    t.string "gender"
     t.text "description"
     t.integer "breed_id", null: false
     t.integer "dog_image_id", null: false
