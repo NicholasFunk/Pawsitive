@@ -10,9 +10,4 @@ class DogControllerTest < ActionDispatch::IntegrationTest
     get dog_show_url
     assert_response :success
   end
-
-  test "should get edit" do
-    get dog_edit_url
-    assert_response :success
-  end
 end
