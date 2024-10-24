@@ -10,21 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_22_003100) do
-  create_table "dogs", force: :cascade do |t|
+ActiveRecord::Schema[7.2].define(version: 2024_10_24_015320) do
+  create_table "breeds", force: :cascade do |t|
     t.string "name"
-    t.string "gender"
-    t.string "size"
-    t.string "coat_length"
-    t.decimal "age"
-    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "images", force: :cascade do |t|
-    t.string "filename"
+  create_table "dog_images", force: :cascade do |t|
+    t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "dogs", force: :cascade do |t|
+    t.string "name"
+    t.string "color"
+    t.integer "age"
+    t.text "description"
+    t.integer "breed_id", null: false
+    t.integer "dog_image_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["breed_id"], name: "index_dogs_on_breed_id"
+    t.index ["dog_image_id"], name: "index_dogs_on_dog_image_id"
+  end
+
+  add_foreign_key "dogs", "breeds"
+  add_foreign_key "dogs", "dog_images"
 end

@@ -2,11 +2,12 @@ class CreateDogs < ActiveRecord::Migration[7.2]
   def change
     create_table :dogs do |t|
       t.string :name
-      t.string :gender
-      t.string :size
-      t.string :coat_length
-      t.decimal :age
+      t.string :color
+      t.integer :age
       t.text :description
+
+      t.references :breed, null: false, foreign_key: true
+      t.references :dog_image, null: false, foreign_key: true
 
       t.timestamps
     end

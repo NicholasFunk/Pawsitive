@@ -1,0 +1,2 @@
+class DogImage < ApplicationRecord
+end

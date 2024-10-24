@@ -1,9 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  breed: one
-  dog_image: one
+  image_url: MyString
 
 two:
-  breed: two
-  dog_image: two
+  image_url: MyString
