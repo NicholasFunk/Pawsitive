@@ -1,7 +1,7 @@
 class Dog < ApplicationRecord
 
-  has_many :dog_breed
-  has_many :breed, through :dog_breed
+  has_many :dog_breeds
+  has_many :breeds, through: :dog_breeds
 
   # Add validations
 end
