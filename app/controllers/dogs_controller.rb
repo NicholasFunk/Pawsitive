@@ -5,6 +5,6 @@ class DogsController < ApplicationController
 
   def show
     # Join on breed and image tables
-    @dog = Dog.find(params[:id])
+    @dog = Dog.includes(:dog_images).find(params[:id])
   end
 end

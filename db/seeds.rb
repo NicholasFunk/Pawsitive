@@ -25,14 +25,9 @@ end
 
 # Construct a fake dog using faker and the random breed and image.
 
+
 200.times do
-
-    # In our loop, we will need to fetch an image from the api.
     random_breed = Breed.find(Breed.pluck(:id).sample)
-    image_url = "https://dog.ceo/api/breed/#{random_breed.name}/images/random"
-
-    puts image_url
-
     dog_name = Faker::Creature::Dog.name
     dog_age = Faker::Number.within(range: 1..20)
     dog_gender = Faker::Creature::Dog.gender
@@ -45,8 +40,15 @@ end
                     )
 
     2.times do
-        dog.dog_images.create(image_url: image_url)
+        # In our loop, we will need to fetch an image from the api.
+        
+        image_url = URI.parse("https://dog.ceo/api/breed/#{random_breed.name}/images/random")
+        response = Net::HTTP.get(image_url)
+        image_data = JSON.parse(response)
+        actual_url = image_data["message"]
+        dog.dog_images.create(image_url: actual_url)
     end
+   
     
     # Create the dog breed reference
     DogBreed.create(dog: dog, breed: random_breed)

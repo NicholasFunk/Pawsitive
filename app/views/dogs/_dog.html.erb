@@ -4,8 +4,10 @@
     <%= dog.name %>
   </p>
 
-
-  <img src="<% @dog.image_url %>" alt="A photo of <%= dog.name %>">
+  <% dog.dog_images.each do |image|%>
+    <%= puts image.image_url%>
+    <img src="<%= image.image_url %>" alt="A photo of <%= dog.name %>">
+  <% end %>
 
   <p>
     <strong>Age:</strong>
