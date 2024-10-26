@@ -4,9 +4,7 @@
 
 <% @dogs.each do |dog| %>
     <ul>
-        <% dog.dog_images.each do |cover|%>
-            <li><img src="<%= cover.image_url %>" alt="A picture of <%= dog.name %>"/></li>
-        <% end %>
+        <img src="<%= dog.dog_images[0].image_url %>" alt="">
         <li><%= dog.name %></li>
         <li>Age: <%= dog.age %></li>
         <li>Gender: <%= dog.gender %></li>
