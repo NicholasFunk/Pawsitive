@@ -1,6 +1,6 @@
 class DogsController < ApplicationController
   def index
-    @dogs = Dog.includes(:dog_images).all
+    @dogs = Dog.includes(:dog_images, :breeds).all
   end
 
   def show
