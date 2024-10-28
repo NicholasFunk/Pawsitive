@@ -4,9 +4,6 @@ class DogsController < ApplicationController
   require 'net/http'
   require 'json'
 
-  def about
-    
-  end
 
   def index
     @dogs = Dog.includes(:dog_images, :breeds).all
