@@ -24,10 +24,16 @@
   <body class="container">
     <nav>
       <h1 class="title is-1"><%= link_to "Pawsitive 🐾", root_path %></h1>
-      <%= link_to "Learn More", about_path %>
-      <%= link_to "New dog", new_dog_path %>
+      
+      <div class="nav-links">
+        <div class="button"><%= link_to "All dogs", root_path %></div>
+        <div class="button"><%= link_to "New dog", new_dog_path %></div>
+        <div class="button"><%= link_to "Learn More", about_path %></div>
+      </div>
       
     </nav>
     <%= yield %>
+
+    <footer class="is-size-4">FNK Media Ltd. 2024 ©️ Nicholas Funk - Winnipeg, MB, funk.nicholas@protonmail.com</footer>
   </body>
 </html>
