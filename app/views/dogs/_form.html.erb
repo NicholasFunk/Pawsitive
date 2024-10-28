@@ -18,7 +18,17 @@
 
   <div>
     <%= form.label :age, style: "display: block" %>
-    <%= form.text_field :price %>
+    <%= form.text_field :age %>
+  </div>
+
+  <div>
+    <%= form.label :gender, style: "display: block" %>
+    <%= form.select :gender, ["Male", "Female"]%>
+  </div>
+
+  <div>
+    <%= form.label :breed_ids, style: "display: block" %>
+    <%= form.collection_select :breed_ids, @breeds, :id, :name %>
   </div>
 
   <div>

@@ -4,14 +4,16 @@
     <% @dogs.each do |dog| %>
     <div class="cell">
         <ul>
+
             <%= link_to dog do %>
                 <img class="image is-128x128, is-fullwidth" src="<%= dog.dog_images[0].image_url %>" alt="">
             <% end %>
+        
             <div class="dog-info">
                 <li><%= dog.name %></li>
                 <li>Age: <%= dog.age %></li>
                 <li>Gender: <%= dog.gender %></li>
-                <li>Breed: <%= dog.breeds[0].name %></li>
+                <li>Breed: <%= dog.breeds[0].name.to_s.capitalize %></li>
             </div>
         </ul>
     </div>
