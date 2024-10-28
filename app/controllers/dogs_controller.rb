@@ -22,8 +22,6 @@ class DogsController < ApplicationController
   def create
     @dog = Dog.new(dog_params)
 
-    
-
     respond_to do |format|
       if @dog.save
         breed_ids = params[:dog][:breed_ids]
@@ -42,8 +40,6 @@ class DogsController < ApplicationController
         actual_url = image_data["message"]
         @dog.dog_images.create(image_url: actual_url)
 
-
-        # make a new connection on the breeds table
         
         format.html { redirect_to @dog, notice: "Dog was successfully created." }
         format.json { render :show, status: :created, location: @dog }

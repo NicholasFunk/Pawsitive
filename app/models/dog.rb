@@ -5,4 +5,5 @@ class Dog < ApplicationRecord
   has_many :dog_images
 
   # Add validations
+  validates :name, :age, :description, presence: true
 end
