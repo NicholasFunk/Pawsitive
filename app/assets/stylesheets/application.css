@@ -23,9 +23,18 @@
 
 }
 
-.dog
-
 .dog-info {
     position: relative;
     margin: 20px;
+}
+
+.cell {
+    border: 1px solid #ccc;
+    padding: 10px;
+    height: 600px;
+}
+
+.cell img {
+    min-height: 150px;
+    
 }
